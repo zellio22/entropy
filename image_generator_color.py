@@ -3,7 +3,7 @@ import random
 
 # Dimensions de l'image
 largeur = 2048
-nom_fichier="./global.ini.tar.gz"
+nom_fichier="./global.ini"
 
 with open(nom_fichier, 'rb') as fichier:
     # Lecture du contenu ou d'autres opérations sur le fichier si nécessaire
@@ -12,17 +12,17 @@ with open(nom_fichier, 'rb') as fichier:
     print(taille_fichier)
     print(len(contenu))
 
-image = Image.new("RGB", (largeur,8152), "white")
+image = Image.new("RGB", (largeur,int(taille_fichier/3/largeur)+1), "white")
 y=0
 x=0
-for i in range(len(contenu)):
-    x=x+3
+for i in range(0,len(contenu),3):
+    x=x+1
 
-    if x+3>=largeur:
+    if x%largeur==0:
         y=y+1
         x=0
 
-    couleur=(contenu[x-3],contenu[x-2],contenu[x-1])
+    couleur=(contenu[i-3],contenu[i-2],contenu[i-1])
     #print(x,y,couleur)
     image.putpixel((x, y), couleur)
     #print(couleur)

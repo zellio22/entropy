@@ -5,7 +5,7 @@ chemin_fichier = './test.txt'
 with open(chemin_fichier, 'rb') as fichier:
     # Lecture de l'octet initial
     print(fichier.tell())
-    fichier.seek(0,2)
+
     octet = fichier.read(1)
     
     while octet:
