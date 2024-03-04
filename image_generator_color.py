@@ -2,8 +2,8 @@ from PIL import Image
 import random
 
 # Dimensions de l'image
-largeur = 2048
-nom_fichier="./global.ini"
+largeur = 1920
+nom_fichier="./renard.png"
 
 with open(nom_fichier, 'rb') as fichier:
     # Lecture du contenu ou d'autres opérations sur le fichier si nécessaire
@@ -22,7 +22,7 @@ for i in range(0,len(contenu),3):
         y=y+1
         x=0
 
-    couleur=(contenu[i-3],contenu[i-2],contenu[i-1])
+    couleur=(contenu[i-1],contenu[i-2],contenu[i-3])
     #print(x,y,couleur)
     image.putpixel((x, y), couleur)
     #print(couleur)
@@ -30,7 +30,7 @@ for i in range(0,len(contenu),3):
 
 
 # Enregistrement de l'image
-image.save("image_random.png")
+image.save(nom_fichier+'.png')
 
 # Affichage de l'image (optionnel)
 
